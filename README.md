@@ -72,3 +72,14 @@ The application consists of three microservices:
    docker-compose ps
    ```
 
+## 📬 Postman Collection
+
+Import the Postman collection to test the APIs:
+
+[Download Postman Collection](./ms-property.postman_collection.json)
+
+### How to Import:
+1. Open Postman
+2. Click **Import** button
+3. Select the collection file
+4. Start testing!
