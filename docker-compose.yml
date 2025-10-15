@@ -1,0 +1,43 @@
+services:
+
+  listing-service:
+    build:
+      context: ./listing-service
+      dockerfile: Dockerfile
+    container_name: listing-service
+    ports:
+      - "6001:6001"
+    networks:
+      - app-network
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    container_name: user-service
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+  public-api-service:
+    build:
+      context: ./public-api
+      dockerfile: Dockerfile
+    container_name: public-api-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SERVICES_USER_BASE-URL=http://user-service:8081
+      - SERVICES_PROPERTY_BASE-URL=http://listing-service:6001
+    depends_on:
+      listing-service:
+        condition: service_started
+      user-service:
+        condition: service_started
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

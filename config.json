@@ -1,0 +1,15 @@
+{
+	"auths": {},
+	"currentContext": "colima",
+	"plugins": {
+		"debug": {
+			"hooks": "exec"
+		},
+		"scout": {
+			"hooks": "pull,buildx build"
+		}
+	},
+	"features": {
+		"hooks": "true"
+	}
+}
