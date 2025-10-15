@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "006440e6-e549-45fe-b2c9-e6929f865955",
+		"name": "99 test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2223122"
+	},
+	"item": [
+		{
+			"name": "listings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6000/listings",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"listings"
+					],
+					"query": [
+						{
+							"key": "page_num",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "page_size",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "listing_type",
+							"value": "rent",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "5000",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:6000/listings"
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "aziz",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8081/users"
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8081/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "get all user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/users?page_num=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page_num",
+							"value": "2"
+						},
+						{
+							"key": "page_size",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "public listings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/public-api/listings",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public-api",
+						"listings"
+					],
+					"query": [
+						{
+							"key": "page_num",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page_size",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "public create listing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 5,\n    \"listing_type\": \"rent\",\n    \"price\": 6000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/public-api/listings"
+			},
+			"response": []
+		},
+		{
+			"name": "public create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"baba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/public-api/users"
+			},
+			"response": []
+		}
+	]
+}
